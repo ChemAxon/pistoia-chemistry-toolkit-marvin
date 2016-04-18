@@ -40,6 +40,9 @@ import org.helm.chemtoolkit.MoleculeInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import chemaxon.calculations.clean.Cleaner;
+import chemaxon.calculations.hydrogenize.Hydrogenize;
+import chemaxon.formats.MolExporter;
 import chemaxon.formats.MolImporter;
 import chemaxon.marvin.MolPrinter;
 import chemaxon.marvin.calculations.ElementalAnalyserPlugin;
@@ -100,26 +103,26 @@ public class ChemaxonManipulator extends AbstractChemistryManipulator {
   /**
    * @param molecule
    * @return
-   * @throws MolExportException
+ * @throws IOException 
    */
-  private String molecule2MolFile(Molecule molecule) throws MolExportException {
-    molecule.clean(2, null);
+  private String molecule2MolFile(Molecule molecule) throws IOException {
+    Cleaner.clean(molecule, 2);
     molecule.dearomatize();
-    return molecule.exportToFormat(MOL_FORMAT);
+    return MolExporter.exportToFormat(molecule, MOL_FORMAT);
   }
 
   /**
    * 
    * @param molecule
    * @return
+ * @throws IOException 
    * @throws CTKException
-   * @throws MolExportException
    */
-  private String molecule2SMILES(Molecule molecule) throws MolExportException {
+  private String molecule2SMILES(Molecule molecule) throws IOException {
 
     molecule.dearomatize();
 
-    return molecule.exportToFormat(SMILES_FORMAT);
+    return MolExporter.exportToFormat(molecule, SMILES_FORMAT);
 
   }
 
@@ -175,9 +178,9 @@ public class ChemaxonManipulator extends AbstractChemistryManipulator {
     String result = null;
     try {
       Molecule molecule = getMolecule(smiles);
-      molecule.clean(2, null);
+      Cleaner.clean(molecule, 2);
       molecule.dearomatize();
-      result = molecule.exportToFormat(MOL_FORMAT);
+      result = MolExporter.exportToFormat(molecule, MOL_FORMAT);
 
     } catch (IOException e) {
       throw new CTKSmilesException("invalid SMILES!", e);
@@ -189,7 +192,7 @@ public class ChemaxonManipulator extends AbstractChemistryManipulator {
     String result = null;
     try {
       Molecule molecule = getMolecule(molfile);
-      result = molecule.exportToFormat(SMILES_FORMAT);
+      result = MolExporter.exportToFormat(molecule, SMILES_FORMAT);
 
     } catch (IOException e) {
       throw new CTKSmilesException("invalid molfile!", e);
@@ -206,8 +209,8 @@ public class ChemaxonManipulator extends AbstractChemistryManipulator {
     String result = null;
     try {
       Molecule molecule = getMolecule(smiles);
-      molecule.implicitizeHydrogens(MolAtom.ALL_H);
-      result = molecule.toFormat(UNIQUE_SMILES_FORMAT);
+      Hydrogenize.convertExplicitHToImplicit(molecule, MolAtom.ALL_H);
+      result = MolExporter.exportToFormat(molecule, UNIQUE_SMILES_FORMAT);
     } catch (IOException e) {
       throw new CTKSmilesException("invalid SMILES!", e);
     }
@@ -229,7 +232,8 @@ public class ChemaxonManipulator extends AbstractChemistryManipulator {
       InputStream is = new ByteArrayInputStream(data.getBytes());
       MolImporter importer = new MolImporter(is);
       molecule = importer.read();
-      molecule.clean(2, null);
+      importer.close();
+      Cleaner.clean(molecule, 2);
 // for (MolBond bond : molecule.getBondArray()) {
 // bond.calcStereo2();
 // }
@@ -260,7 +264,8 @@ public class ChemaxonManipulator extends AbstractChemistryManipulator {
       g.draw(drawArea);
 
       Molecule mol = getMolecule(molFile);
-      mol.hydrogenize(false);
+      Hydrogenize.convertExplicitHToImplicit(mol);
+      //mol.hydrogenize(false);
 
       MolPrinter printer = new MolPrinter(mol);
       // printer.setImplicitH(DispOptConsts.IMPLICITH_OFF_S);
@@ -357,14 +362,14 @@ public class ChemaxonManipulator extends AbstractChemistryManipulator {
     case SMILES:
       try {
         result = molecule2SMILES(molecule);
-      } catch (MolExportException e) {
+      } catch (Exception e) {
         throw new CTKException("unable to export molecule to SMILES!", e);
       }
       break;
     case MOLFILE:
       try {
         result = molecule2MolFile(molecule);
-      } catch (MolExportException e) {
+      } catch (Exception e) {
         throw new CTKException("unable to export molecule to molfile!", e);
       }
       break;

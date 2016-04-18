@@ -18,13 +18,13 @@ package org.helm.chemtoolkit.chemaxon;
 
 import org.helm.chemtoolkit.IChemObjectBase;
 
-import chemaxon.struc.CEdge;
+import chemaxon.struc.MolBond;
 
 /**
  * @author chistyakov
  *
  */
-public class ChemObject extends CEdge implements IChemObjectBase {
+public class ChemObject extends MolBond implements IChemObjectBase {
 
   /**
    * 
@@ -34,7 +34,7 @@ public class ChemObject extends CEdge implements IChemObjectBase {
   /**
    * @param arg0
    */
-  protected ChemObject(CEdge arg0) {
+  protected ChemObject(MolBond arg0) {
     super(arg0);
 
   }

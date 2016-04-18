@@ -8,18 +8,28 @@
 	<packaging>jar</packaging>
 	<name>ChemistryToolkitMarvin</name>
 
-
+<repositories>
+    <repository>
+        <id>ChemAxon Public Repository</id>
+        <url>https://repository.chemaxon.com/artifactory/libs-release</url>
+    </repository>
+</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.helm</groupId>
 			<artifactId>ChemistryToolkit</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
-		<dependency>
+    <dependency>
+        <groupId>com.chemaxon</groupId>
+        <artifactId>jchem</artifactId>
+        <version>15.5.4.0</version>
+    </dependency>
+		<!-- <dependency>
 			<groupId>chemaxon</groupId>
 			<artifactId>MarvinBeans</artifactId>
-			<version>5.0</version>
-		</dependency>
+			<version>16.3.7.0</version>
+		</dependency> -->
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>

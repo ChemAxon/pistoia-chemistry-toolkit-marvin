@@ -74,7 +74,7 @@ public class ChemMolecule extends AbstractMolecule {
   public void removeINode(IAtomBase node) throws CTKException {
     if (node instanceof ChemAtom) {
       if (atoms.contains(node)) {
-        molecule.removeNode(((ChemAtom) node).getMolAtom());
+        molecule.removeAtom(((ChemAtom) node).getMolAtom());
         atoms.remove(node);
       } else
         throw new CTKException("the atom not found in the molecule");
@@ -212,10 +212,10 @@ public class ChemMolecule extends AbstractMolecule {
   @Override
   public void removeIBase(IChemObjectBase node) {
     if (node instanceof ChemBond) {
-      molecule.removeEdge(((ChemBond) node).getMolBond());
+      molecule.removeBond(((ChemBond) node).getMolBond());
     }
     if (node instanceof ChemStereoElement) {
-      molecule.removeEdge(((ChemStereoElement) node).getStereoElement());
+      molecule.removeBond(((ChemStereoElement) node).getStereoElement());
     }
 
   }
