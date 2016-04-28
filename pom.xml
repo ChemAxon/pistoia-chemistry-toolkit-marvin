@@ -1,35 +1,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.helm</groupId>
-	<artifactId>chemaxon-impl-chemtoolkit</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>ChemistryToolkitMarvin</name>
-
-<repositories>
-    <repository>
-        <id>ChemAxon Public Repository</id>
-        <url>https://repository.chemaxon.com/artifactory/libs-release</url>
-    </repository>
-</repositories>
+    <groupId>org.helm</groupId>
+    <artifactId>ChemistryToolkitMarvin</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>ChemistryToolkitMarvin</name>
+    <repositories>
+        <repository>
+            <id>ChemAxon Public Repository</id>
+            <url>https://repository.chemaxon.com/artifactory/libs-release</url>
+        </repository>
+    </repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.helm</groupId>
 			<artifactId>ChemistryToolkit</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
-    <dependency>
-        <groupId>com.chemaxon</groupId>
-        <artifactId>jchem</artifactId>
-        <version>15.5.4.0</version>
-    </dependency>
-		<!-- <dependency>
-			<groupId>chemaxon</groupId>
-			<artifactId>MarvinBeans</artifactId>
-			<version>16.3.7.0</version>
-		</dependency> -->
+        <dependency>
+            <groupId>com.chemaxon</groupId>
+            <artifactId>jchem</artifactId>
+            <version>15.5.4.0</version>
+        </dependency>
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -48,8 +42,8 @@
 		</dependency>
 	</dependencies>
 	<organization>
-		<name>Pistoia Alliance</name>
-		<url>http://www.pistoiaalliance.org/</url>
+		<name>ChemAxon</name>
+		<url>http://www.chemaxon.com/</url>
 	</organization>
 	<build>
 		<plugins>
