@@ -18,30 +18,30 @@ you can reference the ChemAxon Public Repository in your Maven project's pom.xml
 &lt;repositories&gt;
     &lt;repository&gt;
         &lt;id&gt;ChemAxon Public Repository&lt;/id&gt;
-        <url>https://repository.chemaxon.com/artifactory/libs-release</url>
-    </repository>
-</repositories>
+        &lt;url&gt;https://repository.chemaxon.com/artifactory/libs-release&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/repositories&gt;
  
-<dependencies>
-    <dependency>
-        <groupId>com.chemaxon</groupId>
-        <artifactId>ChemistryTookitMarvin</artifactId>
-        <version>1.0.0</version>
-    </dependency>
-</dependencies>
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.chemaxon&lt;/groupId&gt;
+        &lt;artifactId&gt;ChemistryTookitMarvin&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
 </pre><br/>
 This is not an open repository, username and password is required.<br/>
 You can add your account info in settings.xml:<br/>
 <pre>
-<servers>
-  <server>
-    <id>ChemAxon Public Repository</id>
-    <username>Your username</username>
-    <password>Your password</password>
-  </server>
-</servers>
-</pre>
-<br/>
+&lt;servers&gt;
+  &lt;server&gt;
+    &lt;id&gt;ChemAxon Public Repository&lt;/id&gt;
+    &lt;username&gt;Your username&lt;/username&gt;
+    &lt;password&gt;Your password&lt;/password&gt;
+  &lt;/server&gt;
+&lt;/servers&gt;
+&lt;/pre&gt;
+&lt;br/&gt;
 For access rights, please send a request to maven-repo-request@chemaxon.com (it is free).
 
 ## Using of the plug-in
