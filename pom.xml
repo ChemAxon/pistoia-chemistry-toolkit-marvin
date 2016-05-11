@@ -4,7 +4,7 @@
 
     <groupId>org.helm</groupId>
     <artifactId>ChemistryToolkitMarvin</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>ChemistryToolkitMarvin</name>
     <repositories>
@@ -58,4 +58,11 @@
 			</plugin>
 		</plugins>
 	</build>
+  <distributionManagement>
+    <repository>
+      <id>ChemAxon Public Repository</id>
+      <name>ChemAxon Public Repository</name>
+      <url>https://repository.chemaxon.com/artifactory/ext-release-local</url>
+    </repository>
+  </distributionManagement>
 </project>
