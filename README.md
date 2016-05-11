@@ -42,6 +42,7 @@ You can add your account info in settings.xml:<br/>
 &lt;/servers&gt;
 &lt;/pre&gt;
 &lt;br/&gt;
+</pre>
 For access rights, please send a request to maven-repo-request@chemaxon.com (it is free).
 
 ## Using of the plug-in
