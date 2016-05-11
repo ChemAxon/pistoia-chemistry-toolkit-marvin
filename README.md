@@ -15,9 +15,9 @@ This plug-in is depending on ChemistryToolkit, so you need to accessing an artif
 The most simple way for using this plug-in to download the deployed version from ChemAxon's <a href="https://repository.chemaxon.com/artifactory/webapp/login.html?0">artifact repository</a>.
 you can reference the ChemAxon Public Repository in your Maven project's pom.xml:
 <pre>
-<repositories>
-    <repository>
-        <id>ChemAxon Public Repository</id>
+&lt;repositories&gt;
+    &lt;repository&gt;
+        &lt;id&gt;ChemAxon Public Repository&lt;/id&gt;
         <url>https://repository.chemaxon.com/artifactory/libs-release</url>
     </repository>
 </repositories>
