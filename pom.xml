@@ -62,7 +62,7 @@
     <repository>
       <id>ChemAxon Public Repository</id>
       <name>ChemAxon Public Repository</name>
-      <url>https://repository.chemaxon.com/artifactory/ext-release-local</url>
+      <url>https://repository.chemaxon.com/artifactory/libs-release-local</url>
     </repository>
   </distributionManagement>
 </project>
