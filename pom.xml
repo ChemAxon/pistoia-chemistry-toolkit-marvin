@@ -4,7 +4,7 @@
 
     <groupId>com.chemaxon</groupId>
     <artifactId>ChemistryToolkitMarvin</artifactId>
-    <version>1.0.0</version>
+    <version>15.5.4.0</version>
     <packaging>jar</packaging>
     <name>ChemistryToolkitMarvin</name>
     <repositories>
