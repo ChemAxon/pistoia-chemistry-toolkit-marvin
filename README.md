@@ -31,7 +31,7 @@ You can reference the ChemAxon Public Repository in your Maven project's pom.xml
 &lt;/dependencies&gt;
 </pre><br/>
 This is not an open repository, username and password is required.<br/>
-You can add your account info in settings.xml:<br/>
+You can add your account info in &lt;user home&gt;/.m2/settings.xml:<br/>
 <pre>
 &lt;servers&gt;
   &lt;server&gt;
